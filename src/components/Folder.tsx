@@ -1,13 +1,16 @@
-//import { useState } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addLink } from "../redux/slices/folderSlice";
 
-interface FolderProps {
+interface FolderData {
 	id: number;
 	name: string;
 	links: string[];
 }
 
-const Folder = ({ id, name, links }: FolderProps) => {
-	//const [linkData, setLinkData] = useState(["1", "2", "3", "4"]);
+const Folder = ({ id, name, links }: FolderData) => {
+	const [link, setLink] = useState("");
+	const dispatch = useDispatch();
 
 	return (
 		<div className="mx-auto w-96 mt-10 shadow-2xl shadow-primary-500">
@@ -23,7 +26,20 @@ const Folder = ({ id, name, links }: FolderProps) => {
 				);
 			})}
 
-			<input type="text" />
+			{/* <button onClick={() => dispatch(addFolder({ id: 3, name: "folder 3", links: ["link 1"] }))}>
+				Add Folder
+			</button> */}
+
+			<br></br>
+			<form
+				onSubmit={(event) => {
+					event.preventDefault();
+					dispatch(addLink({ id: id, link: link }));
+				}}
+			>
+				<input type="text" onChange={(event) => setLink(event.target.value)} />
+				<button type="submit">Add Link</button>
+			</form>
 		</div>
 	);
 };
