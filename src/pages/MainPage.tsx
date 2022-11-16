@@ -4,13 +4,13 @@ import type { RootState } from "../redux/store";
 import { useSelector } from "react-redux";
 
 const MainPage = () => {
-	const folder = useSelector((state: RootState) => state.folderSlice.folder);
+	const folders = useSelector((state: RootState) => state.folderSlice.folders);
 
 	return (
 		<div className="h-screen bg-gradient-to-b from-quaternary-500 to-primary-600">
 			<Header />
 
-			{folder.map(function (folder, index) {
+			{folders.map(function (folder, index) {
 				return <Folder key={index} {...folder} />;
 			})}
 		</div>
