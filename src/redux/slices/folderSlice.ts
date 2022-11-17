@@ -7,7 +7,11 @@ interface FolderData {
 	links: string[];
 }
 
-const initialState = {
+interface FolderState {
+	folders: FolderData[];
+}
+
+const initialState: FolderState = {
 	folders: [
 		{
 			id: 0,
@@ -29,8 +33,10 @@ export const folderSlice = createSlice({
 		addFolder: (state, action: PayloadAction<FolderData>) => {
 			state.folders = [...state.folders, action.payload];
 		},
-		addLink: (state, action: PayloadAction<{id: number, link: string}>) => {
-			state.folders[action.payload.id].links.push(action.payload.link);
+		addLink: (state, action: PayloadAction<{ id: number; link: string }>) => {
+			const { id, link } = action.payload;
+			
+			state.folders[id].links.push(link);
 		},
 	},
 });
