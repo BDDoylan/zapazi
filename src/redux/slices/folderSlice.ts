@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface FolderData {
+export interface FolderData {
 	id: number;
 	name: string;
 	links: string[];
 }
 
-interface FolderState {
+export interface FolderState {
 	folders: FolderData[];
 }
 
