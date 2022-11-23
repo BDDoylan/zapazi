@@ -49,7 +49,28 @@ module.exports = {
 					900: "#26241a",
 				},
 			},
+			keyframes: {
+				slideRight: {
+					"0%": { transform: "translate(0%)" },
+					"100%": { transform: "translate(99%)" },
+				},
+				slideLeft: {
+					"0%": { transform: "translate(100%)" },
+					"100%": { transform: "translate(0%)" },
+				},
+				slowPulse: {
+					"0%": { opacity: 1 },
+					"50%": { opacity: 0.9 },
+					"80%": { opacity: 0.6 },
+					"100%": { opacity: 1 },
+				},
+			},
+			animation: {
+				slideRight: "slideRight 1.5s ease-in-out forwards",
+				slideLeft: "slideLeft 1.5s ease-in-out forwards",
+				slowPulse: "slowPulse 5s ease-in-out infinite",
+			},
 		},
 	},
-	plugins: [],
+	plugins: [require("tailwind-scrollbar-hide")],
 };

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { addLink } from "../redux/slices/folderSlice";
+import { useAppDispatch } from "../redux/store";
 
 interface FolderData {
 	id: number;
@@ -10,7 +10,7 @@ interface FolderData {
 
 const Folder = ({ id, name, links }: FolderData) => {
 	const [link, setLink] = useState("");
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const handleSubmit = (event: any) => {
 		event.preventDefault();
@@ -19,7 +19,7 @@ const Folder = ({ id, name, links }: FolderData) => {
 	};
 
 	return (
-		<div className="mx-auto w-96 mt-10">
+		<div className="mx-auto w-96 pt-10">
 			<div className="bg-primary-600 w-20 rounded-t-2xl text-tertiary-600">
 				<button className="animate-pulse ml-3.5">SHARE</button>
 			</div>

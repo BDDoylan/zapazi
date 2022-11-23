@@ -7,3 +7,7 @@
 		font-family: Gruppo, cursive;
 	}
 }
+
+*::-webkit-scrollbar {
+	display: none;
+}
