@@ -52,7 +52,7 @@ module.exports = {
 			keyframes: {
 				slideRight: {
 					"0%": { transform: "translate(0%)" },
-					"100%": { transform: "translate(99%)" },
+					"100%": { transform: "translate(100%)" },
 				},
 				slideLeft: {
 					"0%": { transform: "translate(100%)" },
@@ -64,11 +64,16 @@ module.exports = {
 					"80%": { opacity: 0.6 },
 					"100%": { opacity: 1 },
 				},
+				fadeIn: {
+					"0%": { opacity: 0 },
+					"100%": { opacity: 1 },
+				},
 			},
 			animation: {
 				slideRight: "slideRight 1.5s ease-in-out forwards",
 				slideLeft: "slideLeft 1.5s ease-in-out forwards",
 				slowPulse: "slowPulse 5s ease-in-out infinite",
+				fadeIn: "fadeIn 2s ease-in-out forwards",
 			},
 		},
 	},
